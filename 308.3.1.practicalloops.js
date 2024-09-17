@@ -2,6 +2,7 @@
 console.log(`Part 1: Fizz Buzz`)
 
 function fizzBuzz(range, match1, match2){
+    //limit n to positive integers
     function validateArgs(param){
         if (typeof param !== 'number' || isNaN(param) || param <= 0 || !Number.isInteger(param)) {
         throw new Error("Select positive integers for the range, divisible by match1, and divisible by match2 parameters")
@@ -35,7 +36,7 @@ fizzBuzz(100, 3, 5)
 console.log(`Pt 2: Prime Time`)
 
 function findNextPrime(n) {
-    //limit n to a number from -100 t0 1,000,000
+    //limit n to integers from  0 to 1,000,000 for performance
     function validateArgs(n){
         if (typeof n !== 'number' || isNaN(n) || !Number.isInteger(n) || n >= 1000000 || n < 0 ) {
         throw new Error("Select an integer from 0 to 1,000,000 for the parameters")
@@ -75,8 +76,6 @@ try {
 }
 
 findNextPrime(15);
-findNextPrime(10.4);
-findNextPrime(-200);
 
 
 // Part 3: Feeling Loopy
