@@ -36,46 +36,37 @@ fizzBuzz(100, 3, 5)
 console.log(`Pt 2: Prime Time`)
 
 function findNextPrime(n) {
-    //limit n to integers from  0 to 1,000,000 for performance
-    function validateArgs(n){
-        if (typeof n !== 'number' || isNaN(n) || !Number.isInteger(n) || n >= 1000000 || n < 0 ) {
-        throw new Error("Select an integer from 0 to 1,000,000 for the parameters")
+    // Limit n to integers from 0 to 1,000,000 for performance
+    function validateArgs(n) {
+        if (typeof n !== 'number' || isNaN(n) || !Number.isInteger(n) || n >= 1000000 || n < 0) {
+            throw new Error("Select an integer from 0 to 1,000,000 for the parameter");
         }
     }
 
-try {
-    validateArgs(n);
-
+    // Function to check if a number is prime
     function checkPrime(num) {
-        if (num < 2) {
-            return false;
-        }
-        //2 and 3 are prime
-          if (num === 2 || num === 3) {
-            return true;
-          }
-          if (num % 2 === 0 || num % 3 === 0) {
-            return false;
-          }
-          for (let i = 5; i * i <= num; i+= 6) {
-            if (num % i === 0 || num % (i + 2) === 0) {
-              return false;
+        if (num < 2) return false; // 0 and 1 are not prime
+        for (let i = 2; i < num; i++) {
+            if (num % i === 0) {
+                return false;
             }
-          }
-          return true;
         }
-        while (true) {
-            if (checkPrime(n)) {
-                console.log(`The next prime number is: ${n}`);
-                break; 
-            } n++;
-        }
-    } catch (error){
-        console.error(error.message)
+        return true;
     }
+        let nextCandidate = n + 1;
+        // Look ahead to next number while checkPrime isnt true
+        while (!checkPrime(nextCandidate)) {
+            nextCandidate++;
+        }
+        console.log(`The next prime number is: ${nextCandidate}`);
+        return nextCandidate;
+
+    } catch (error) {
+        console.error(error.message);
 }
 
-findNextPrime(15);
+// Test the function
+findNextPrime(15);  // Output: The next prime number is: 17
 
 
 // Part 3: Feeling Loopy
