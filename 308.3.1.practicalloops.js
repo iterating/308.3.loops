@@ -1,5 +1,5 @@
 // Part 1: Fizz Buzz
-console.log(`Part 1: Fizz Buzz`)
+console.group(`Part 1: Fizz Buzz`)
 
 function fizzBuzz(range, match1, match2){
     //limit n to positive integers
@@ -33,7 +33,7 @@ fizzBuzz(100, 3, 5)
 
 
 // Pt 2: Prime time
-console.log(`Pt 2: Prime Time`)
+console.group(`Pt 2: Prime Time`)
 
 function findNextPrime(n) {
     // Limit n to integers from 0 to 1,000,000 for performance
@@ -53,6 +53,9 @@ function findNextPrime(n) {
         }
         return true;
     }
+
+    try {
+        validateArgs(n);
         let nextCandidate = n + 1;
         // Look ahead to next number while checkPrime isnt true
         while (!checkPrime(nextCandidate)) {
@@ -60,17 +63,16 @@ function findNextPrime(n) {
         }
         console.log(`The next prime number is: ${nextCandidate}`);
         return nextCandidate;
-
     } catch (error) {
-        console.error(error.message);
+            console.error(error.message);
+        }
 }
-
 // Test the function
 findNextPrime(15);  // Output: The next prime number is: 17
 
 
 // Part 3: Feeling Loopy
-console.log(`Pt 3: Feeling Loopy`)
+console.group(`Pt 3: Feeling Loopy`)
 
 function parseCSV(input) {
     function validateArgs(input){
