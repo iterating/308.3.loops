@@ -29,8 +29,7 @@ function fizzBuzz(range, match1, match2){
 }   
 fizzBuzz(100, 3, 5)
 
-
-
+console.groupEnd()
 
 // Pt 2: Prime time
 console.group(`Pt 2: Prime Time`)
@@ -57,7 +56,7 @@ function findNextPrime(n) {
     try {
         validateArgs(n);
         let nextCandidate = n + 1;
-        // Look ahead to next number while isPrime isnt true
+        // Look ahead to next number while isPrime isn't true
         while (!isPrime(nextCandidate)) {
             nextCandidate++;
         }
@@ -68,9 +67,14 @@ function findNextPrime(n) {
         }
 }
 // Test the function
+findNextPrime(0);  // Output: The next prime number is: 2
+findNextPrime(2);  // Output: The next prime number is: 3
 findNextPrime(15);  // Output: The next prime number is: 17
+findNextPrime(33515);  // Output: The next prime number is: 33521
 
 
+
+console.groupEnd()
 // Part 3: Feeling Loopy
 console.group(`Pt 3: Feeling Loopy`)
 
@@ -95,7 +99,7 @@ function parseCSV(input) {
                     selectRow.push(selectCell);
                     // reset the cell select
                     selectCell = '';
-                    // push last cell that isnt delimited
+                    // push last cell that isn't delimited
                     if (selectCell.length > 0 ) {
                         selectRow.push(selectCell);
                     }
@@ -110,7 +114,7 @@ function parseCSV(input) {
                     // reset the cell and row select
                     selectCell = '';
                     selectRow = [];
-                    // push last row that isnt delimited
+                    // push last row that isn't delimited
                     if (selectRow.length > 0 ) {
                         csvRows.push(selectRow);
                     }
@@ -133,3 +137,5 @@ function parseCSV(input) {
 // Example CSV string
 input = "Index,Mass (kg),Spring 1 (m),Spring 2 (m)\n1,0.00,0.050,0.050\n2,0.49,0.066,0.066\n3,0.98,0.087,0.080\n4,1.47,0.116,0.108\n5,1.96,0.142,0.138\n6,2.45,0.166,0.158\n7,2.94,0.193,0.174\n8,3.43,0.204,0.192\n9,3.92,0.226,0.205\n10,4.41,0.238,0.232"
 parseCSV(input);
+
+console.groupEnd()
