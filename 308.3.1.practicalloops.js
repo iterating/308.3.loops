@@ -44,7 +44,7 @@ function findNextPrime(n) {
     }
 
     // Function to check if a number is prime
-    function checkPrime(num) {
+    function isPrime(num) {
         if (num < 2) return false; // 0 and 1 are not prime
         for (let i = 2; i < num; i++) {
             if (num % i === 0) {
@@ -57,8 +57,8 @@ function findNextPrime(n) {
     try {
         validateArgs(n);
         let nextCandidate = n + 1;
-        // Look ahead to next number while checkPrime isnt true
-        while (!checkPrime(nextCandidate)) {
+        // Look ahead to next number while isPrime isnt true
+        while (!isPrime(nextCandidate)) {
             nextCandidate++;
         }
         console.log(`The next prime number is: ${nextCandidate}`);
