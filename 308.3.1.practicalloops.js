@@ -85,7 +85,7 @@ function parseCSV(input) {
         }
     // Each row will be an array of strings. The table will be an array of rows (2d array)
     validateArgs(input);
-    let selectCell = '';
+    let selectCell = [];
     let selectRow = [];
     let csvRows = [];
     // Loop through each character and put it into the row array, delimited by ","
